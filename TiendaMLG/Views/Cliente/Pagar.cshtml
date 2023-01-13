@@ -1,0 +1,9 @@
+﻿@model int
+
+@if(Model == 1){
+    <h1 class="text-center mt-3">Muchas gracias por la compra</h1>
+} else
+{
+    <h1 class="text-center mt-3">Error por favor intente más tarde</h1>
+}
+<h3 class="text-center"><a asp-controller="Home" asp-action="Index">Ir al inicio</a></h3>

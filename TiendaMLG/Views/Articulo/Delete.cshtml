@@ -1,0 +1,34 @@
+﻿@using TiendaEntidades
+@model TiendaEntidades.Articulo
+
+<h1>Eliminar Articulo</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Delete">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input asp-for="IdArticulo" type="hidden" class="form-control" />
+                <input asp-for="IdTienda" type="hidden" class="form-control" />
+            </div>
+
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el articulo: @Html.DisplayFor(m => Model.Codigo) - @Html.DisplayFor(m => Model.Descripcion) ?
+            </div>
+
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,42 @@
+﻿@model List<TiendaEntidades.Cliente>
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Direccion
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => cliente.Nombre) @Html.DisplayFor(m => cliente.ApellidoPaterno) @Html.DisplayFor(m => cliente.ApellidoMaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => cliente.Direccion)
+                </td>
+                <td>
+                    <a asp-action="Create" asp-route-IdCliente="@cliente.IdCliente" class="btn btn-primary">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-IdCliente="@cliente.IdCliente" class="btn btn-danger">
+                        <i class="bi bi-x-square"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
